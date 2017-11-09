@@ -8,9 +8,8 @@
 - Blog: https://www.serasaexperian.com.br/datalabs-noticias/
 - Projetos: https://www.serasaexperian.com.br/datalabs/
 
-## NOSql
-
-### Links
+## Links
+- https://www.mapd.com/demos/
 - https://github.com/mapd
 - https://www.mapd.com/blog/2017/05/08/mapd-open-sources-gpu-powered-database/
 - https://www.mapd.com/docs/mapd2/latest/MapDGuide.pdf
@@ -39,6 +38,7 @@ mapd/mapd-ce-cuda
 COPY example from '/tmp/example.csv' WITH (nulls = 'NA');
 ```
 
+#### Sqoop
 ```
 sqoop-export\
 --table sptrans\
@@ -50,6 +50,7 @@ sqoop-export\
 --batch
 ```
 
+#### Kafka
 ```
 # Producer
 cat example.csv | bin/kafka-console-producer.sh --broker-list localhost:9097
@@ -60,6 +61,7 @@ cat example.csv | bin/kafka-console-producer.sh --broker-list localhost:9097
 HyperInteractive --database mapd --table example --user mapd --batch 1
 ```
 
+#### Spark
 ```
 df = spark.read.option("header", "true").csv(args.input)
 
@@ -72,5 +74,24 @@ FROM smartzones_data
 df.write.jdbc(url="jdbc:mapd:<HOST>:9091:mapd", 
    table="smartzones_data", mode="append", 
    properties= {"driver":"com.mapd.jdbc.MapDDriver","user":“<USER>",         "password":“<PASSWORD>"})
+
+```
+
+#### EMR + Jupyter
+```
+BootstrapActions=[
+  {
+'Name': 'Jupyter Notebook',
+'ScriptBootstrapAction': {
+'Path': 's3://aws-bigdata-blog/artifacts/aws-blog-emr-jupyter/install-jupyter-emr5.sh',
+'Args': [
+'--s3fs', '--python3',
+'--python-packages', 'pandas matplotlib findspark boto3',
+'--port', '8880', '--password' ,'jupyter', 
+'--cached-install', 
+'--notebook-dir', 's3://mybucket/notebooks/']
+	}
+  },
+],
 
 ```
