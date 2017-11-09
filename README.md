@@ -2,7 +2,7 @@
 
 ## Contatos
 - vinicius.remigio@gmail.com
-- linkedin.com/in/viniremigio/
+- https://linkedin.com/in/viniremigio/
 
 ## Serasa Experian DataLab
 - Blog: https://www.serasaexperian.com.br/datalabs-noticias/
