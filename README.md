@@ -9,6 +9,8 @@
 - Projetos: https://www.serasaexperian.com.br/datalabs/
 
 ## Links
+- https://developerzen.com/best-practices-writing-production-grade-pyspark-jobs-cb688ac4d20f
+- https://aws.amazon.com/pt/blogs/big-data/running-jupyter-notebook-and-jupyterhub-on-amazon-emr/
 - https://www.mapd.com/demos/
 - https://github.com/mapd
 - https://www.mapd.com/blog/2017/05/08/mapd-open-sources-gpu-powered-database/
